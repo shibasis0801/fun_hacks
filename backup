@@ -1,0 +1,6 @@
+#!/bin/bash
+
+filename=$(echo $1 | cut -d. -f1)
+extension=$(echo $1 | cut -d. -f2)
+
+cp $1 $filename'_backup.'$extension

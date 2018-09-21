@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+from sys import stdin
+data = stdin.read()
+elements = [i for i in data.split() if len(i) != 0 ]
+for element in elements:
+	print(element, end = ',')

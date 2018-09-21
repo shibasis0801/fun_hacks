@@ -1,0 +1,4 @@
+output=$(basename $1 .cpp).out
+g++ -std=gnu++1z $1 -o $output
+./$output
+
