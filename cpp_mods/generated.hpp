@@ -1,4 +1,5 @@
 
+#include <limits>
 #include <functional>
 #include <algorithm>
 #include <iterator>
@@ -9,6 +10,8 @@
 #include <map>
 #include <set>
 using namespace std;
+
+const int inf = numeric_limits<int>::max();
 
 #define repeat(i, n) for ( int i = 0; i < n; ++i )
 #define inverse_for(i, n) for ( int i = n; i >= 0; --i )
@@ -85,4 +88,31 @@ namespace mod
     string concat(const T &first, const Types&... rest) {
         return toString(first) + concat(rest...);
     }
+}
+namespace mod
+{
+
+    template <class A, class B> class couple;
+    template <class A, class B> ostream& operator<<(ostream&, const couple<A, B>&);
+    template<class A, class B> 
+    struct couple {
+        // Improvement over std::pair in simplicity.
+        // I believe that STL is not at all extendable. 
+        A first;
+        B second;
+
+        couple() {}
+
+        couple(A first, B second): first(first), second(second)
+        {}
+
+        friend ostream& operator<< <A, B> (ostream &os, const couple<A, B> &c);
+
+    };
+    template<class A, class B>
+    ostream& operator<<(ostream &os, const couple<A,B> &c) {
+        os << concat("( ", c.first, ", ", c.second, " )");
+        return os;
+    }
+
 }

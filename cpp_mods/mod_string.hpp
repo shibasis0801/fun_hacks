@@ -1,6 +1,6 @@
 #ifndef MOD_STRING
 #define MOD_STRING
-#include "std_headers.hpp"
+#include "mod_macros.hpp"
 
 namespace mod 
 {

@@ -1,4 +1,0 @@
-#!/bin/bash
-I=`xinput --list | grep "AT Translated Set 2 keyboard" | split | cut -d, -f7 | cut -d= -f2`
-xinput set-int-prop $I "Device Enabled" 8 0
-

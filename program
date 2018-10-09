@@ -13,12 +13,27 @@ editor = "code"
 
 command = editor + " " + filename
 
+test_code = """
+using namespace mod;
+//Start Here
+
+
+int main() {
+    cout << "Working\\n"; 
+}
+"""
+
 def copy_file(source_path, destination_path):
     source_file = open(source_path)
     destination_file = open(destination_path, 'w')
     print (source_file.read(), file = destination_file)
 
+
+
 if not isfile(filename):
     copy_file(generate_header(), filename)
+    print(test_code, file = open(filename, 'a'))
 
 run(command.split())
+
+### In my run, i dont pass arguments.
